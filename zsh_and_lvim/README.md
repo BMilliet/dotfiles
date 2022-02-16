@@ -3,6 +3,7 @@
 This container uses:
 * brew (linuxbrew)
 * lvim (lunarvim)
+* zsh + ohmyzsh (for non-root)
 
 The entry point is root user running bash shell so it's possible to use root without the regular user.
 The regular user is called 'tofu' by default and it uses zsh with ohmyzsh.
