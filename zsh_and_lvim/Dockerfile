@@ -34,7 +34,7 @@ RUN brew install gcc \
     node \
     rust
 
-RUN printf 'n\ny\ny\n' | bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+RUN printf 'n\ny\ny\n' | /bin/bash -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)"
 RUN echo 'export PATH=/home/tofu/.cargo/bin:/home/tofu/.local/bin:$PATH' >> /home/tofu/.zshrc
 
 USER root
