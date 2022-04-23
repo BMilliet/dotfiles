@@ -5,6 +5,7 @@ RUN apt update && \
     apt install -y zsh \
     git \
     curl \
+    libssl-dev \
     ripgrep \
     ninja-build \
     gettext \
@@ -16,9 +17,12 @@ RUN apt update && \
     g++ \
     pkg-config \
     unzip \
-    doxygen
+    doxygen \
+    ruby-full \
+    locales
 
 RUN useradd -m -s /bin/zsh tofu
+RUN locale-gen en_US.UTF-8
 
 USER tofu
 
@@ -31,15 +35,9 @@ RUN mkdir /home/tofu/others
 RUN cd /home/tofu/others && git clone --depth=1 https://github.com/neovim/neovim
 RUN cd neovim && make
 
+RUN echo 'export LANG=en_US.UTF-8' >> ~/.zshrc
+
 USER root
 RUN cd /home/tofu/others/neovim && make install
 
-USER tofu
-
-RUN sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-RUN nvim --headless +PlugInstall +qall
-
-USER root
 CMD ["bash"]
