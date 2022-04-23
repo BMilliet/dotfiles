@@ -24,6 +24,10 @@ RUN apt update && \
 RUN useradd -m -s /bin/zsh tofu
 RUN locale-gen en_US.UTF-8
 
+RUN export GEM_HOME=/home/tofu/.gem && \
+    gem install bundler && \
+    chown -R tofu:tofu .gem
+
 USER tofu
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -36,6 +40,8 @@ RUN cd /home/tofu/others && git clone --depth=1 https://github.com/neovim/neovim
 RUN cd neovim && make
 
 RUN echo 'export LANG=en_US.UTF-8' >> ~/.zshrc
+RUN echo 'export GEM_HOME=/home/tofu/.gem' >> ~/.zshrc
+RUN echo 'export PATH="/home/tofu/.gem/bin:${PATH}"' >> ~/.zshrc
 
 USER root
 RUN cd /home/tofu/others/neovim && make install
