@@ -41,19 +41,19 @@ call plug#begin('~/.vim/plugged')
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'preservim/nerdtree'
-Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
-colorscheme gruvbox
+colorscheme nord
 
 " NerdTree
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['^.git$', '.DS_Store', 'node_modules', '.next']
 let NERDTreeShowLineNumbers=1
-nnoremap <Leader>pt :NERDTreeToggle<Enter>
+nnoremap <Leader>e :NERDTreeToggle<Enter>
 
 " Telescope
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>lg <cmd>Telescope live_grep<cr>
 
