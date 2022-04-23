@@ -26,7 +26,7 @@ RUN locale-gen en_US.UTF-8
 
 RUN export GEM_HOME=/home/tofu/.gem && \
     gem install bundler && \
-    chown -R tofu:tofu .gem
+    chown -R tofu:tofu /home/tofu/.gem
 
 USER tofu
 
