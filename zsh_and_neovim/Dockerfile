@@ -28,7 +28,7 @@ RUN mkdir -p /home/tofu/.config/nvim
 COPY setups/init.vim /home/tofu/.config/nvim
 
 RUN mkdir /home/tofu/others
-RUN cd /home/tofu/others && git clone https://github.com/neovim/neovim
+RUN cd /home/tofu/others && git clone --depth=1 https://github.com/neovim/neovim
 RUN cd neovim && make
 
 USER root
