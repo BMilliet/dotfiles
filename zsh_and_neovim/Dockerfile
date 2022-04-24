@@ -29,12 +29,14 @@ RUN export GEM_HOME=/home/tofu/.gem && \
     gem install solargraph && \
     chown -R tofu:tofu /home/tofu/.gem
 
+RUN mkdir -p /home/tofu/.config/nvim
+COPY nvim /home/tofu/.config/nvim
+
+RUN chown -R tofu:tofu /home/tofu/.config
+
 USER tofu
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-RUN mkdir -p /home/tofu/.config/nvim
-COPY nvim /home/tofu/.config
 
 RUN mkdir /home/tofu/others
 RUN cd /home/tofu/others && git clone --depth=1 https://github.com/neovim/neovim
