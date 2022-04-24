@@ -37,7 +37,7 @@ COPY nvim /home/tofu/.config
 
 RUN mkdir /home/tofu/others
 RUN cd /home/tofu/others && git clone --depth=1 https://github.com/neovim/neovim
-RUN cd neovim && make
+RUN cd /home/tofu/others/neovim && make
 
 RUN echo 'export LANG=en_US.UTF-8' >> ~/.zshrc
 RUN echo 'export GEM_HOME=/home/tofu/.gem' >> ~/.zshrc
