@@ -22,12 +22,27 @@ if not status_ok then
 end
 
 return packer.startup(function(use)
+  -- search
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
+
+  -- file tree
   use 'preservim/nerdtree'
+
+  -- theme
   use 'arcticicestudio/nord-vim'
+
+  -- lsp
   use 'neovim/nvim-lspconfig'
+
+  -- completions
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'L3MON4D3/LuaSnip'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
