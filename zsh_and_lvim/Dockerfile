@@ -1,4 +1,4 @@
-FROM docker.io/library/ubuntu:latest
+FROM --platform=linux/amd64 ubuntu:22.04
 
 RUN apt update && \
     apt upgrade -y && \
