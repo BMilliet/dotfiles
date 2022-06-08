@@ -48,10 +48,17 @@ RUN mkdir /home/tofu/others/swift && \
     tar xzf swift-5.6.1-RELEASE-ubuntu20.04-aarch64.tar.gz && \
     rm -f swift-5.6.1-RELEASE-ubuntu20.04-aarch64.tar.gz
 
+RUN mkdir /home/tofu/others/dart && \
+    cd /home/tofu/others/dart && \
+    curl https://storage.googleapis.com/dart-archive/channels/stable/release/2.17.3/sdk/dartsdk-linux-arm64-release.zip -O -L && \
+    unzip dartsdk-linux-arm64-release.zip && \
+    rm -f dartsdk-linux-arm64-release.zip
+
 RUN echo 'export LANG=en_US.UTF-8' >> ~/.zshrc
 RUN echo 'export GEM_HOME=/home/tofu/.gem' >> ~/.zshrc
 RUN echo 'export PATH="/home/tofu/.gem/bin:${PATH}"' >> ~/.zshrc
 RUN echo 'export PATH="/home/tofu/others/swift/swift-5.6.1-RELEASE-ubuntu20.04-aarch64/usr/bin:${PATH}"' >> ~/.zshrc
+RUN echo 'export PATH="/home/tofu/others/dart/dart-sdk/bin:${PATH}"' >> ~/.zshrc
 
 USER root
 RUN cd /home/tofu/others/neovim && make install
