@@ -42,7 +42,9 @@ RUN mkdir /home/tofu/others
 RUN cd /home/tofu/others && git clone --depth=1 https://github.com/neovim/neovim
 RUN cd /home/tofu/others/neovim && make
 
-RUN curl https://download.swift.org/swift-5.6.1-release/ubuntu2004-aarch64/swift-5.6.1-RELEASE/swift-5.6.1-RELEASE-ubuntu20.04-aarch64.tar.gz -O -L && \
+RUN mkdir /home/tofu/others/swift && \
+    cd /home/tofu/others/swift && \
+    curl https://download.swift.org/swift-5.6.1-release/ubuntu2004-aarch64/swift-5.6.1-RELEASE/swift-5.6.1-RELEASE-ubuntu20.04-aarch64.tar.gz -O -L && \
     tar xzf swift-5.6.1-RELEASE-ubuntu20.04-aarch64.tar.gz && \
     rm -f swift-5.6.1-RELEASE-ubuntu20.04-aarch64.tar.gz
 
