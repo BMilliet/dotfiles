@@ -19,7 +19,8 @@ RUN apt update && \
     unzip \
     doxygen \
     ruby-full \
-    locales
+    locales \
+    libsqlite3-dev
 
 RUN useradd -m -s /bin/zsh tofu
 RUN locale-gen en_US.UTF-8
@@ -41,9 +42,14 @@ RUN mkdir /home/tofu/others
 RUN cd /home/tofu/others && git clone --depth=1 https://github.com/neovim/neovim
 RUN cd /home/tofu/others/neovim && make
 
+RUN curl https://download.swift.org/swift-5.6.1-release/ubuntu2004-aarch64/swift-5.6.1-RELEASE/swift-5.6.1-RELEASE-ubuntu20.04-aarch64.tar.gz -O -L && \
+    tar xzf swift-5.6.1-RELEASE-ubuntu20.04-aarch64.tar.gz && \
+    rm -f swift-5.6.1-RELEASE-ubuntu20.04-aarch64.tar.gz
+
 RUN echo 'export LANG=en_US.UTF-8' >> ~/.zshrc
 RUN echo 'export GEM_HOME=/home/tofu/.gem' >> ~/.zshrc
 RUN echo 'export PATH="/home/tofu/.gem/bin:${PATH}"' >> ~/.zshrc
+RUN echo 'export PATH="/home/tofu/others/swift/swift-5.6.1-RELEASE-ubuntu20.04-aarch64/usr/bin:${PATH}"' >> ~/.zshrc
 
 USER root
 RUN cd /home/tofu/others/neovim && make install
