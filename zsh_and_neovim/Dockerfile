@@ -63,6 +63,10 @@ RUN mkdir /home/tofu/others/node && \
     tar -xJf node-v16.16.0-linux-arm64.tar.xz && \
     rm -rf node-v16.16.0-linux-arm64.tar.xz
 
+RUN printf '1\n' | /bin/bash -c "$(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh)"
+RUN source "$HOME/.cargo/env"
+RUN cargo install tree-sitter-cli
+
 RUN echo 'export LANG=en_US.UTF-8' >> ~/.zshrc
 RUN echo 'export GEM_HOME=/home/tofu/.gem' >> ~/.zshrc
 RUN echo 'export PATH="/home/tofu/.gem/bin:${PATH}"' >> ~/.zshrc
