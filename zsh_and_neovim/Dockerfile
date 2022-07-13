@@ -39,8 +39,10 @@ RUN git clone https://github.com/BMilliet/nvim.git /home/tofu/.config/nvim
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 RUN mkdir /home/tofu/others
-RUN cd /home/tofu/others && git clone --depth=1 https://github.com/neovim/neovim
-RUN cd /home/tofu/others/neovim && make
+RUN cd /home/tofu/others && git clone https://github.com/neovim/neovim
+RUN cd /home/tofu/others/neovim && \
+    git checkout stable && \
+    make CMAKE_BUILD_TYPE=Release
 
 RUN mkdir /home/tofu/others/swift && \
     cd /home/tofu/others/swift && \
@@ -59,8 +61,8 @@ RUN echo 'export GEM_HOME=/home/tofu/.gem' >> ~/.zshrc
 RUN echo 'export PATH="/home/tofu/.gem/bin:${PATH}"' >> ~/.zshrc
 RUN echo 'export PATH="/home/tofu/others/swift/swift-5.6.1-RELEASE-ubuntu20.04-aarch64/usr/bin:${PATH}"' >> ~/.zshrc
 RUN echo 'export PATH="/home/tofu/others/dart/dart-sdk/bin:${PATH}"' >> ~/.zshrc
+RUN echo 'export PATH="/home/tofu/others/neovim/build/bin:${PATH}"' >> ~/.zshrc
 
 USER root
-RUN cd /home/tofu/others/neovim && make install
 
 CMD ["bash"]
