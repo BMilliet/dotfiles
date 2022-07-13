@@ -56,12 +56,19 @@ RUN mkdir /home/tofu/others/dart && \
     unzip dartsdk-linux-arm64-release.zip && \
     rm -f dartsdk-linux-arm64-release.zip
 
+RUN mkdir /home/tofu/others/node && \
+    cd /home/tofu/others/node && \
+    curl https://nodejs.org/dist/v16.16.0/node-v16.16.0-linux-arm64.tar.xz -O -L && \
+    tar -xJf node-v16.16.0-linux-arm64.tar.xz && \
+    rm -rf node-v16.16.0-linux-arm64.tar.xz
+
 RUN echo 'export LANG=en_US.UTF-8' >> ~/.zshrc
 RUN echo 'export GEM_HOME=/home/tofu/.gem' >> ~/.zshrc
 RUN echo 'export PATH="/home/tofu/.gem/bin:${PATH}"' >> ~/.zshrc
 RUN echo 'export PATH="/home/tofu/others/swift/swift-5.6.1-RELEASE-ubuntu20.04-aarch64/usr/bin:${PATH}"' >> ~/.zshrc
 RUN echo 'export PATH="/home/tofu/others/dart/dart-sdk/bin:${PATH}"' >> ~/.zshrc
 RUN echo 'export PATH="/home/tofu/others/neovim/build/bin:${PATH}"' >> ~/.zshrc
+RUN echo 'export PATH="/home/tofu/others/node/node-v16.16.0-linux-arm64/bin:${PATH}"' >> ~/.zshrc
 
 USER root
 
