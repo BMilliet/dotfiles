@@ -20,7 +20,8 @@ RUN apt update && \
     doxygen \
     ruby-full \
     locales \
-    libsqlite3-dev
+    libsqlite3-dev \
+    pip
 
 RUN useradd -m -s /bin/zsh tofu
 RUN locale-gen en_US.UTF-8
