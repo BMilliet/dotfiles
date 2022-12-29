@@ -68,7 +68,7 @@ fun! AutoComplete()
     if v:char =~ '\K'
         \ && getline('.')[col('.') - 4] !~ '\K'
         \ && getline('.')[col('.') - 3] =~ '\K'
-        \ && getline('.')[col('.') - 2] =~ '\K' " last char
+        \ && getline('.')[col('.') - 2] =~ '\K'
         \ && getline('.')[col('.') - 1] !~ '\K'
 
         call feedkeys("\<C-P>", 'n')
