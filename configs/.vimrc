@@ -1,5 +1,8 @@
 syntax on
 
+set termguicolors
+colorscheme nord
+
 set cursorline
 :highlight Cursorline cterm=bold ctermbg=black
 
