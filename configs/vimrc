@@ -3,6 +3,8 @@ syntax on
 set termguicolors
 colorscheme nord
 
+let mapleader = ' '
+
 set cursorline
 :highlight Cursorline cterm=bold ctermbg=black
 
@@ -28,10 +30,13 @@ filetype plugin indent on
 set incsearch
 set hlsearch
 
+" File tree
+let g:netrw_liststyle = 3
+nnoremap <leader>pv :Ex<CR>
+
 set wildignore=*/.buckd/*,*/buck-ou/*,*/.git/*,*/.github/*,*/buckjavaargs/*,*/Pods/*,*/*.lock/*,*/.DS_Store/*,*/__pycache__/*
 
 " Window movement
-let mapleader = ' '
 nnoremap <leader><left> :wincmd h<CR>
 nnoremap <leader><up> :wincmd j<CR>
 nnoremap <leader><down> :wincmd k<CR>
