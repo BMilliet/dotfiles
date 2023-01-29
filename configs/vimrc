@@ -32,7 +32,9 @@ set hlsearch
 
 " File tree
 let g:netrw_liststyle = 3
-nnoremap <leader>pv :Ex<CR>
+let g:netrw_banner = 0
+
+nnoremap <leader>p :Ex<CR>
 
 set wildignore=*/.buckd/*,*/buck-ou/*,*/.git/*,*/.github/*,*/buckjavaargs/*,*/Pods/*,*/*.lock/*,*/.DS_Store/*,*/__pycache__/*
 
