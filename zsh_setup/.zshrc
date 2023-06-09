@@ -19,7 +19,7 @@ alias docker=podman
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=1000
-setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
 
 # COMPLETIONS
 autoload -U compinit
