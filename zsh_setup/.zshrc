@@ -1,6 +1,6 @@
 
-export EDITOR=vim
-# export EDITOR=nvim
+#export EDITOR=vim
+export EDITOR=nvim
 
 # ALIAS
 
@@ -18,10 +18,10 @@ alias docker=podman
 # COMPLETIONS
 
 autoload -U compinit
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' menu select
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 compinit
 _comp_options+=(globdots)
-
 
 # CUSTOM THEME
 
@@ -45,9 +45,8 @@ is_git_dirty() {
 }
 
 # container mode
-# PROMPT_PREFFIX_USER='%B%F{green}[%n:📦]%f%b'
-PROMPT_PREFFIX_USER='%B%F{green}[%n:🍣]%f%b'
-PROMPT_PREFFIX_ERR='%B%F{red}[%n:❌]%f%b'
+PROMPT_PREFFIX_USER='%B%F{green}➜%f%b'
+PROMPT_PREFFIX_ERR='%B%F{red}➜%f%b'
 
 PROMPT_PATH='%B%F{cyan}%c%f%b'
 
