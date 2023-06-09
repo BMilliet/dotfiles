@@ -44,7 +44,6 @@ is_git_dirty() {
   fi
 }
 
-# container mode
 PROMPT_PREFFIX_USER='%B%F{green}➜%f%b'
 PROMPT_PREFFIX_ERR='%B%F{red}➜%f%b'
 
