@@ -53,6 +53,17 @@ PROMPT_PREFFIX="%B%(?.${PROMPT_PREFFIX_USER}%F{green}.${PROMPT_PREFFIX_ERR}%F{re
 
 PROMPT='$PROMPT_PREFFIX $PROMPT_PATH$(git_branch)$(is_git_dirty) '
 
+# UPDATE
+
+zupdate() {
+  cd ~/.config/dotfiles
+  git pull
+  cd
+  cp ~/.config/dotfiles/zsh_setup/.zshrc .
+  zso
+}
+
+
 # FINAL
 
 echo '
