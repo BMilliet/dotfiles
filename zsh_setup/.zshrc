@@ -15,6 +15,14 @@ alias zcat="cat ~/.zshrc"
 
 alias docker=podman
 
+# COMPLETIONS
+
+autoload -U compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' menu select
+compinit
+_comp_options+=(globdots)
+
+
 # CUSTOM THEME
 
 setopt PROMPT_SUBST
