@@ -7,12 +7,16 @@ RUN dnf update -y && \
   tmux \
   neovim \
   g++ \
+  zsh \
   go
 
 RUN mkdir /home/workspace
 WORKDIR /home/workspace
 
 RUN git clone https://github.com/BMilliet/kickstart.nvim.git ~/.config/nvim
+RUN git clone https://github.com/BMilliet/dotfiles.git ~/.config/dot
 
-CMD ["bash"]
+RUN cp ~/.config/dot/zsh_setup/.zshrc ~/.zshrc
+
+CMD ["zsh"]
 
