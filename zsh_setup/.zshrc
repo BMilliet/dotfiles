@@ -15,13 +15,22 @@ alias zcat="cat ~/.zshrc"
 
 alias docker=podman
 
-# COMPLETIONS
+# HISTORY
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=1000
+setopt APPEND_HISTORY
 
+# COMPLETIONS
 autoload -U compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 compinit
 _comp_options+=(globdots)
+
+# HISTORY COMPLETION
+bindkey '\e[A' history-search-backward
+bindkey '\e[B' history-search-forward
 
 # CUSTOM THEME
 
