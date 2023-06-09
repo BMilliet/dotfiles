@@ -1,3 +1,7 @@
+
+export EDITOR=vim
+# export EDITOR=nvim
+
 # ALIAS
 
 alias l="ls -la --color=auto"
