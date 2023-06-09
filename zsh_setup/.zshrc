@@ -9,6 +9,8 @@ alias zdit="$EDITOR ~/.zshrc"
 alias zso="source ~/.zshrc"
 alias zcat="cat ~/.zshrc"
 
+alias docker=podman
+
 # CUSTOM THEME
 
 git_branch() {
