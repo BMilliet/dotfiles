@@ -3,6 +3,14 @@ export EDITOR=nvim
 export RCFILE=~/.zshrc
 export MYDOCS=~/.mydocs/
 
+export NO_COLOR='\033[0m'
+export RED='\033[0;31m'
+export CYAN='\033[0;36m'
+export GREEN='\033[0;32m'
+export BLUE='\033[0;34m'
+export PURPLE='\033[0;35m'
+export YELLOW='\033[1;33m'
+
 # ALIAS
 
 alias l="ls -la --color=auto"
@@ -24,8 +32,17 @@ ndoc() {
 }
 
 rdoc() {
-  echo "removing doc => $MYDOCS$1"
-  rm "$MYDOCS$1"
+  if [ -f "$MYDOCS$1" ]; then
+    echo -n "${YELLOW}should remove${NO_COLOR} $MYDOCS$1? (y/n) "
+    read answer
+
+    if [[ $answer == "y" ]]; then
+      echo "${RED}removing ${NO_COLOR}doc => $MYDOCS$1"
+      rm "$MYDOCS$1"
+    fi
+  else
+    echo "selected doc ${RED}does not exist"
+  fi
 }
 
 gdoc() {
