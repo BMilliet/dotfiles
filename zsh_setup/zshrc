@@ -127,8 +127,8 @@ PROMPT='$PROMPT_PREFFIX $PROMPT_PATH$(git_branch)$(is_git_dirty) '
 zupdate() {
   cd ~/.config/dotfiles
   git pull
+  make set_zsh
   cd
-  cp ~/.config/dotfiles/zsh_setup/.zshrc .
   zso
 }
 
