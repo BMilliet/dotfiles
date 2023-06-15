@@ -1,6 +1,7 @@
 
-#export EDITOR=vim
 export EDITOR=nvim
+export RCFILE=~/.zshrc
+export MYDOCS=~/.mydocs/
 
 # ALIAS
 
@@ -9,11 +10,27 @@ alias l="ls -la --color=auto"
 alias gst="git status"
 alias gco="git checkout"
 
-alias zdit="$EDITOR ~/.zshrc"
-alias zso="source ~/.zshrc"
-alias zcat="cat ~/.zshrc"
-
+alias zdit="$EDITOR $RCFILE"
+alias zso="source $RCFILE"
+alias zcat="cat $RCFILE"
 alias docker=podman
+
+# DOCS
+
+alias ldoc="l $MYDOCS"
+
+ndoc() {
+  "$EDITOR" "$MYDOCS$1"
+}
+
+rdoc() {
+  echo "removing doc => $MYDOCS$1"
+  rm "$MYDOCS$1"
+}
+
+gdoc() {
+  ldocs | grep "$1"
+}
 
 # HISTORY
 HISTFILE=~/.zsh_history
