@@ -24,6 +24,8 @@ zhelp() {
   ${CYAN}zdit${NO_COLOR}    => edit .zshrc
   ${CYAN}zso${NO_COLOR}     => source .zshrc
   ${CYAN}zcat${NO_COLOR}    => cat .zshrc
+  ${CYAN}vdit${NO_COLOR}    => edit custom nvim config
+  ${CYAN}cdvim${NO_COLOR}   => cd nvim config dir
   ${CYAN}docker${NO_COLOR}  => podman
   ${CYAN}ghist${NO_COLOR}   => grep history
 
@@ -46,6 +48,10 @@ alias cddot="cd ~/.config/dotfiles"
 alias zdit="$EDITOR $RCFILE"
 alias zso="source $RCFILE"
 alias zcat="cat $RCFILE"
+
+alias vdit="$EDITOR ~/.config/nvim/lua/custom/plugins/init.lua"
+alias cdvim="cd ~/.config/nvim"
+
 alias docker=podman
 
 # DOCS
