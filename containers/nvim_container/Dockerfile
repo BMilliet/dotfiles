@@ -9,13 +9,12 @@ RUN dnf update -y && \
   g++ \
   zsh
 
-RUN chsh -s /bin/zsh
 RUN mkdir /home/workspace
 WORKDIR /home/workspace
 
 RUN git clone https://github.com/BMilliet/kickstart.nvim.git ~/.config/nvim
 RUN git clone https://github.com/BMilliet/dotfiles.git ~/.config/dotfiles
 
-RUN cp ~/.config/dot/zsh_setup/.zshrc ~/.zshrc
+RUN cd ~/.config/dotfiles && make set_zsh
 
-CMD ["tmux"]
+CMD ["zsh"]
