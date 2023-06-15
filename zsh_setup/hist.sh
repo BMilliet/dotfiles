@@ -1,0 +1,11 @@
+
+# HISTORY
+
+HISTSIZE=10000
+SAVEHIST=10000
+setopt INC_APPEND_HISTORY
+
+ghist() {
+  grep --color "$1" "$HISTFILE"
+}
+
