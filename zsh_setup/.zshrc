@@ -1,15 +1,38 @@
 
-export EDITOR=nvim
-export RCFILE=~/.zshrc
-export MYDOCS=~/.mydocs/
+EDITOR=nvim
+RCFILE=~/.zshrc
+MYDOCS=~/.mydocs/
+HISTFILE=~/.zsh_history
 
-export NO_COLOR='\033[0m'
-export RED='\033[0;31m'
-export CYAN='\033[0;36m'
-export GREEN='\033[0;32m'
-export BLUE='\033[0;34m'
-export PURPLE='\033[0;35m'
-export YELLOW='\033[1;33m'
+NO_COLOR='\033[0m'
+RED='\033[0;31m'
+CYAN='\033[0;36m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+YELLOW='\033[1;33m'
+
+# ZSH HELP
+zhelp() {
+  echo "
+  ${GREEN}== general alias and commads ==${NO_COLOR}
+  ${CYAN}zupdate${NO_COLOR} => update zshrc from remote
+  ${CYAN}l${NO_COLOR}       => list files
+  ${CYAN}gst${NO_COLOR}     => git status
+  ${CYAN}gco${NO_COLOR}     => git checkout
+  ${CYAN}zdit${NO_COLOR}    => edit .zshrc
+  ${CYAN}zso${NO_COLOR}     => source .zshrc
+  ${CYAN}zcat${NO_COLOR}    => cat .zshrc
+  ${CYAN}docker${NO_COLOR}  => podman
+  ${CYAN}ghist${NO_COLOR}   => grep history
+
+  ${PURPLE}== docs ==${NO_COLOR}
+  ${CYAN}ldoc${NO_COLOR}    => list docs
+  ${CYAN}ndoc${NO_COLOR}    => create new doc
+  ${CYAN}rdoc${NO_COLOR}    => remove doc
+  ${CYAN}gdoc${NO_COLOR}    => grep doc
+  "
+}
 
 # ALIAS
 
@@ -50,10 +73,13 @@ gdoc() {
 }
 
 # HISTORY
-HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt INC_APPEND_HISTORY
+
+ghist() {
+  grep --color "$1" "$HISTFILE"
+}
 
 # COMPLETIONS
 autoload -U compinit
