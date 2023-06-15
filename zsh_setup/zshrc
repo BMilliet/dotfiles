@@ -20,6 +20,7 @@ zhelp() {
   ${CYAN}l${NO_COLOR}       => list files
   ${CYAN}gst${NO_COLOR}     => git status
   ${CYAN}gco${NO_COLOR}     => git checkout
+  ${CYAN}cddot${NO_COLOR}   => cd dotfiles dir
   ${CYAN}zdit${NO_COLOR}    => edit .zshrc
   ${CYAN}zso${NO_COLOR}     => source .zshrc
   ${CYAN}zcat${NO_COLOR}    => cat .zshrc
@@ -40,6 +41,7 @@ alias l="ls -la --color=auto"
 
 alias gst="git status"
 alias gco="git checkout"
+alias cddot="cd ~/.config/dotfiles"
 
 alias zdit="$EDITOR $RCFILE"
 alias zso="source $RCFILE"
@@ -130,6 +132,12 @@ zupdate() {
   make set_zsh
   cd
   zso
+}
+
+vupdate() {
+  cd ~/.config/nvim
+  git pull
+  cd
 }
 
 
