@@ -12,6 +12,6 @@ YELLOW=\033[1;33m
 # Commands
 
 set_zsh:
-	@echo "☕️ ${GREEN}setting zshrc"
+	@echo "☕️ ${GREEN}setting zshrc${NO_COLOR}"
 	@cp zsh_setup/zshrc ~/.zshrc
 
