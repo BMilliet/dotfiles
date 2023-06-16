@@ -8,6 +8,7 @@ source "$ZSH_HOME/docs.sh"
 source "$ZSH_HOME/hist.sh"
 source "$ZSH_HOME/comp.sh"
 source "$ZSH_HOME/theme.sh"
+source "$ZSH_HOME/custom.sh"
 
 echo '
  ____
