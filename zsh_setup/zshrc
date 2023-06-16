@@ -3,6 +3,7 @@ DOTFILES=~/.config/dotfiles
 ZSH_HOME="$DOTFILES/zsh_setup"
 
 source "$ZSH_HOME/envs.sh"
+source "$ZSH_HOME/alias.sh"
 source "$ZSH_HOME/utils.sh"
 source "$ZSH_HOME/docs.sh"
 source "$ZSH_HOME/hist.sh"
