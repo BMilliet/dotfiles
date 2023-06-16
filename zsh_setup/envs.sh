@@ -3,7 +3,7 @@
 
 EDITOR=nvim
 RCFILE=~/.zshrc
-MYDOCS=~/.mydocs/
+MYDOCS=~/.my_docs/
 HISTFILE=~/.zsh_history
 NVIM_HOME=~/.config/nvim
 
