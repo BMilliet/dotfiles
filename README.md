@@ -9,4 +9,6 @@ Each container contains the specified use like general dev tools plus text-edito
 ## Setup
 ```bash
 git clone https://github.com/BMilliet/dotfiles.git ~/.config/dotfiles
+cd ~/.config/dotfiles
+make setup
 ```
