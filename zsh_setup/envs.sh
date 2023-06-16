@@ -3,9 +3,10 @@
 
 EDITOR=nvim
 RCFILE=~/.zshrc
-MYDOCS=~/.my_docs/
+MY_DOCS=~/.my_docs/
 HISTFILE=~/.zsh_history
 NVIM_HOME=~/.config/nvim
+MY_REQUESTS=~/.my_requests
 
 # COLORS
 

@@ -1,20 +1,20 @@
 
 # DOCS
 
-alias ldoc="l $MYDOCS"
+alias ldoc="l $MY_DOCS"
 
 ndoc() {
-  "$EDITOR" "$MYDOCS$1"
+  "$EDITOR" "$MY_DOCS$1"
 }
 
 rdoc() {
-  if [ -f "$MYDOCS$1" ]; then
-    echo -n "${YELLOW}should remove${NO_COLOR} $MYDOCS$1? (y/n) "
+  if [ -f "$MY_DOCS$1" ]; then
+    echo -n "${YELLOW}should remove${NO_COLOR} $MY_DOCS$1? (y/n) "
     read answer
 
     if [[ $answer == "y" ]]; then
-      echo "${RED}removing ${NO_COLOR}doc => $MYDOCS$1"
-      rm "$MYDOCS$1"
+      echo "${RED}removing ${NO_COLOR}doc => $MY_DOCS$1"
+      rm "$MY_DOCS$1"
     fi
   else
     echo "selected doc ${RED}does not exist"
