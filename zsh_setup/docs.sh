@@ -4,7 +4,13 @@
 alias ldoc="l $MY_DOCS"
 
 ndoc() {
-  "$EDITOR" "$MY_DOCS$1"
+  if [ -z "$1" ]; then
+    echo -n "${CYAN}create${NO_COLOR} new doc (name): "
+    read answer
+    "$EDITOR" "$MY_DOCS$answer"
+  else
+    "$EDITOR" "$MY_DOCS$1"
+  fi
 }
 
 rdoc() {
