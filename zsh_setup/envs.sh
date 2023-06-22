@@ -5,7 +5,7 @@ EDITOR=nvim
 RCFILE=~/.zshrc
 HISTFILE=~/.zsh_history
 NVIM_HOME="$HOME_CONFIG/nvim"
-MY_DOCS="$DOTFILES/.my_docs"
+MY_DOCS="$ZSH_DATA/my_docs"
 
 # COLORS
 
