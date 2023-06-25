@@ -27,3 +27,5 @@ set_nvim:
 	@echo "🏄‍♂️ ${GREEN}setting nvim${NO_COLOR}"
 	@git clone git clone https://github.com/BMilliet/kickstart.nvim.git ~/.config/nvim
 
+brew_dump:
+	@cd config/macos && brew bundle dump
