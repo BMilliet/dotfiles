@@ -9,7 +9,8 @@ zhelp() {
   ${CYAN}l${NO_COLOR}       => list files
   ${CYAN}gst${NO_COLOR}     => git status
   ${CYAN}gco${NO_COLOR}     => git checkout
-  ${CYAN}cddot${NO_COLOR}   => cd dotfiles dir
+  ${CYAN}dots${NO_COLOR}    => cd dotfiles dir
+  ${CYAN}work${NO_COLOR}    => cd workspace dir
   ${CYAN}zdit${NO_COLOR}    => edit .zshrc
   ${CYAN}zso${NO_COLOR}     => source .zshrc
   ${CYAN}zcat${NO_COLOR}    => cat .zshrc
@@ -17,6 +18,12 @@ zhelp() {
   ${CYAN}cdvim${NO_COLOR}   => cd nvim config dir
   ${CYAN}docker${NO_COLOR}  => podman
   ${CYAN}ghist${NO_COLOR}   => grep history
+
+  ${RED}== finder ==${NO_COLOR}
+  ${CYAN}psf${NO_COLOR}     => find projects (workspace and .config)
+  ${CYAN}psg${NO_COLOR}     => find file in projects (workspace and .config)
+  ${CYAN}sf${NO_COLOR}      => find dir
+  ${CYAN}sg${NO_COLOR}      => find file
 
   ${PURPLE}== docs ==${NO_COLOR}
   ${CYAN}ldoc${NO_COLOR}    => list docs

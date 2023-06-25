@@ -1,5 +1,6 @@
 
 HOME_CONFIG=~/.config
+WORKSPACE=~/workspace
 ZSH_DATA="$HOME_CONFIG/my_zsh_data"
 DOTFILES="$HOME_CONFIG/dotfiles"
 ZSH_HOME="$DOTFILES/zsh_setup"
@@ -12,6 +13,7 @@ source "$ZSH_HOME/docs.sh"
 source "$ZSH_HOME/hist.sh"
 source "$ZSH_HOME/comp.sh"
 source "$ZSH_HOME/theme.sh"
+source "$ZSH_HOME/finder.sh"
 source "$ZSH_HOME/custom.sh"
 
 echo '
