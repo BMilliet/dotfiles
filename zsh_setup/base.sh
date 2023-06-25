@@ -5,5 +5,12 @@ create_zsh_data() {
   fi
 }
 
+create_workspace() {
+  if [ ! -d "$WORKSPACE" ]; then
+    mkdir "$WORKSPACE"
+  fi
+}
+
 create_zsh_data
+create_workspace
 
