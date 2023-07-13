@@ -29,7 +29,7 @@ zhelp() {
   ${CYAN}ldoc${NO_COLOR}    => list docs
   ${CYAN}ndoc${NO_COLOR}    => create new doc
   ${CYAN}rdoc${NO_COLOR}    => remove doc
-  ${CYAN}gdoc${NO_COLOR}    => grep doc
+  ${CYAN}gdoc${NO_COLOR}    => get doc
   "
 }
 

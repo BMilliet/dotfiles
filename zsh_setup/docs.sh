@@ -34,7 +34,8 @@ rdoc() {
 }
 
 gdoc() {
-  ldoc | grep "$1" --color
+  result=$(find "$MY_DOCS" \( -name .git -o -name .build \) -prune -o -print | fzf)
+  handle_search $result
 }
 
 create_my_docs
