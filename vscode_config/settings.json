@@ -8,5 +8,5 @@
     "editor.formatOnPaste": true,
     "editor.autoClosingQuotes": "never",
     "files.trimTrailingWhitespace": true,
-    "files.autoSave": "afterDelay",
+    "files.autoSave": "afterDelay"
 }
