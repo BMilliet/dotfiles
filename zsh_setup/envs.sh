@@ -1,10 +1,10 @@
 
 # ENVS
 
-EDITOR=nvim
+IDE=code
+EDITOR=vim
 RCFILE=~/.zshrc
 HISTFILE=~/.zsh_history
-NVIM_HOME="$HOME_CONFIG/nvim"
 MY_DOCS="$ZSH_DATA/my_docs"
 
 # COLORS
