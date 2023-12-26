@@ -2,6 +2,7 @@
 # ALIAS
 
 alias l="ls -la --color=auto"
+alias py="python3"
 
 alias gst="git status"
 alias gco="git checkout"
