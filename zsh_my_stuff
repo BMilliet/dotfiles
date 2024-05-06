@@ -1,0 +1,53 @@
+#### ENVS
+
+IDE=code
+EDITOR=vim
+WORKSPACE=~/workspace
+
+
+##### ALIAS
+
+alias docs="$IDE ~/my_docs"
+alias work="cd $WORKSPACE"
+alias zso="source ~/.zshrc"
+
+
+#### FZF
+
+psf() {
+  result=$(find "$WORKSPACE" \( -name .git -o -name .build \) -prune -o -print | fzf)
+  handle_search $result
+}
+
+sf() {
+  result=$(find . \( -name .git -o -name .build \) -prune -o -print | fzf)
+  handle_search $result
+}
+
+handle_search() {
+  local result="$1"
+
+  if [ -n "$result" ]; then
+    if [ -d "$result" ]; then
+      cd $result
+    elif [ -f "$result" ]; then
+      $EDITOR $result
+    else
+      echo "not dir or file"
+    fi
+  fi
+}
+
+
+#### CUSTOM
+
+echo '
+ ____
+< Hello! >
+ ----
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+'
