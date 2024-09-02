@@ -61,6 +61,11 @@
         "command": "workbench.action.closeActiveEditor",
         "when": "vim.mode == 'Normal' && editorTextFocus"
     },
+    {
+        "key": "space b b d",
+        "command": "workbench.action.closeAllEditors",
+        "when": "vim.mode == 'Normal' && editorTextFocus"
+    },
     // Coding
     {
         "key": "shift-up",
@@ -123,4 +128,9 @@
         "command": "explorer.newFolder",
         "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
     },
+    {
+        "key": "enter",
+        "command": "explorer.openAndPassFocus",
+        "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    }
 ]
