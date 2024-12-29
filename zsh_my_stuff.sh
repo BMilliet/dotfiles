@@ -1,13 +1,12 @@
 #### ENVS
 
-IDE=code
 EDITOR=nvim
 WORKSPACE=~/workspace
 
 
 ##### ALIAS
 
-alias docs="$IDE ~/.my_docs"
+alias docs="$EDITOR ~/.my_docs"
 alias work="cd $WORKSPACE"
 alias zso="source ~/.zshrc"
 alias nconfig="cd ~/.config/nvim"
@@ -43,6 +42,8 @@ handle_search() {
     fi
   fi
 }
+
+source ~/.config/dotfiles/zsh_custom.sh
 
 
 #### CUSTOM
