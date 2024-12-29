@@ -4,43 +4,38 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"path/filepath"
 	"strings"
 )
 
 const (
 	lineToCheck = "source ~/.config/dotfiles/zsh_my_stuff.sh"
-	zshrcPath   = "~/.zshrc"
+	zshrcFile   = ".zshrc"
 )
 
 func main() {
 	// Get path to ~/.zshrc
-	path, err := expandPath(zshrcPath)
+	homeDir, err := os.UserHomeDir()
 	if err != nil {
 		fmt.Println("Error expanding path:", err)
 		return
 	}
 
+	zshrcPath := filepath.Join(homeDir, zshrcFile)
+
 	// Check if line is already there.
-	if lineExistsInFile(path, lineToCheck) {
+	if lineExistsInFile(zshrcPath, lineToCheck) {
 		fmt.Println("zsh already configured")
 		return
 	}
 
 	// Write source zsh if needed
-	if err := appendToFile(path, lineToCheck); err != nil {
+	if err := appendToFile(zshrcPath, lineToCheck); err != nil {
 		fmt.Println("Error appending to file:", err)
 		return
 	}
 
 	fmt.Println("Line added to ~/.zshrc")
-}
-
-func expandPath(path string) (string, error) {
-	home, err := os.UserHomeDir()
-	if err != nil {
-		return "", err
-	}
-	return strings.Replace(path, "~", home, 1), nil
 }
 
 func lineExistsInFile(filePath, line string) bool {
