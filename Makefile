@@ -24,7 +24,7 @@ setup_nvim:
 	@if [ ! -d ~/.config/nvim ]; then \
 		git clone git@github.com:BMilliet/kickstart.nvim.git ~/.config/nvim; \
 	else \
-		echo "👀 ${YELLOW}nvim config already exists, skipping clone${NO_COLOR}"; \
+		echo "⚡️ ${YELLOW}nvim config already exists, skipping clone${NO_COLOR}"; \
 	fi
 
 brew_dump:
