@@ -1,15 +1,21 @@
 #### ENVS
 
 IDE=code
-EDITOR=vim
+EDITOR=nvim
 WORKSPACE=~/workspace
 
 
 ##### ALIAS
 
-alias docs="$IDE ~/my_docs"
+alias docs="$IDE ~/.my_docs"
 alias work="cd $WORKSPACE"
 alias zso="source ~/.zshrc"
+alias nconfig="cd ~/.config/nvim"
+alias cat="bat"
+alias rcat="cat"
+
+alias vi="nvim"
+alias vim="nvim"
 
 
 #### FZF
@@ -51,3 +57,4 @@ echo '
                 ||----w |
                 ||     ||
 '
+

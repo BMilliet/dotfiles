@@ -13,17 +13,15 @@ YELLOW=\033[1;33m
 
 
 setup_mac:
-	@echo "🌴 ${CYAN}Setting up configs${NO_COLOR}"
-	@echo "⛵️ ${GREEN}install tools${NO_COLOR}"
-	@cd config/macos && brew bundle install
-	$(MAKE) set_zsh
+	@echo "⛵️ ${GREEN}Setup macOS${NO_COLOR}"
+	@cd setup/macos && brew bundle install
+	@go run scripts/setup_zsh.go
+	$(MAKE) setup_nvim
 
-
-set_zsh:
-	@echo "☕️ ${GREEN}setting zshrc${NO_COLOR}"
-	@cp zsh_setup/zshrc ~/.zshrc
-	@source ~/.zshrc
-
+setup_nvim:
+	@echo "☕️ ${GREEN}Setup nvim${NO_COLOR}"
+	git clone git@github.com:BMilliet/kickstart.nvim.git ~/.config/nvim
 
 brew_dump:
-	@cd config/macos && brew bundle dump
+	@echo "🌴 ${CYAN}Update brewfile${NO_COLOR}"
+	@cd setup/macos && rm Brewfile && brew bundle dump
