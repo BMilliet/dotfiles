@@ -25,7 +25,7 @@ func main() {
 
 	// Check if line is already there.
 	if lineExistsInFile(zshrcPath, lineToCheck) {
-		fmt.Println("zsh already configured")
+		fmt.Println("✨ zsh already configured")
 		return
 	}
 
@@ -35,7 +35,7 @@ func main() {
 		return
 	}
 
-	fmt.Println("Line added to ~/.zshrc")
+	fmt.Println("🎉 Line added to ~/.zshrc")
 }
 
 func lineExistsInFile(filePath, line string) bool {
@@ -72,3 +72,4 @@ func appendToFile(filePath, line string) error {
 
 	return nil
 }
+
