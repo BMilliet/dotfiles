@@ -24,7 +24,7 @@ setup_mac:
 setup_nvim:
 	@echo "☕️ ${GREEN}Setup nvim${NO_COLOR}"
 	@if [ ! -d ~/.config/nvim ]; then \
-		git clone git@github.com:BMilliet/kickstart.nvim.git ~/.config/nvim; \
+		git clone git@github.com:BMilliet/nvim.git ~/.config/nvim; \
 	else \
 		echo "⚡️ ${YELLOW}nvim config already exists, skipping clone${NO_COLOR}"; \
 	fi
