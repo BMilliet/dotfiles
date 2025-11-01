@@ -18,9 +18,10 @@ setup_mac:
 	@$(MAKE) create_docs
 	@$(MAKE) create_bin
 	@$(MAKE) create_workspace
-	@cd setup/macos && brew bundle install
-	@go run scripts/setup_zsh.go
 	@$(MAKE) setup_nvim
+	@$(MAKE) set_custom_zsh
+	@cd setup/macos && brew bundle install
+	@source ~/.zshrc
 
 setup_nvim:
 	@echo "☕️ ${GREEN}Setup nvim${NO_COLOR}"
