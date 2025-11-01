@@ -15,7 +15,8 @@ YELLOW=\033[1;33m
 setup_mac:
 	@echo "⛵️ ${GREEN}Setup macOS${NO_COLOR}"
 	@touch zsh_custom.sh
-	@$(MAKE) create_my_docs
+	@$(MAKE) create_docs
+	@$(MAKE) create_bin
 	@$(MAKE) create_workspace
 	@cd setup/macos && brew bundle install
 	@go run scripts/setup_zsh.go
@@ -29,14 +30,6 @@ setup_nvim:
 		echo "⚡️ ${YELLOW}nvim config already exists, skipping clone${NO_COLOR}"; \
 	fi
 
-create_my_docs:
-	@echo "📁 ${CYAN}Creating ~/.my_docs directory${NO_COLOR}"
-	@if [ ! -d ~/.my_docs ]; then \
-		mkdir ~/.my_docs && echo "✅ ${GREEN}~/.my_docs created${NO_COLOR}"; \
-	else \
-		echo "⚡️ ${YELLOW}~/.my_docs already exists, skipping${NO_COLOR}"; \
-	fi
-
 create_workspace:
 	@echo "📁 ${CYAN}Creating ~/workspace directory${NO_COLOR}"
 	@if [ ! -d ~/workspace ]; then \
@@ -45,6 +38,24 @@ create_workspace:
 		echo "⚡️ ${YELLOW}~/workspace already exists, skipping${NO_COLOR}"; \
 	fi
 
+create_docs:
+	@echo "📁 ${CYAN}Creating docs directory${NO_COLOR}"
+	@if [ ! -d docs ]; then \
+		mkdir docs && echo "✅ ${GREEN}docs created${NO_COLOR}"; \
+	else \
+		echo "⚡️ ${YELLOW}docs already exists, skipping${NO_COLOR}"; \
+	fi
+
+create_bin:
+	@echo "📁 ${CYAN}Creating bin directory${NO_COLOR}"
+	@if [ ! -d bin ]; then \
+		mkdir bin && echo "✅ ${GREEN}custom_bin created${NO_COLOR}"; \
+	else \
+		echo "⚡️ ${YELLOW}custom_bin already exists, skipping${NO_COLOR}"; \
+	fi
+
+set_custom_zsh:
+	@echo 'source ~/.config/dotfiles/zsh_my_stuff.sh' >> ~/.zshrc
 
 brew_dump:
 	@echo "🌴 ${CYAN}Update brewfile${NO_COLOR}"
