@@ -58,7 +58,7 @@ set_custom_zsh:
 	@echo 'source ~/.config/dotfiles/zsh_my_stuff.sh' >> ~/.zshrc
 
 set_fish:
-	@cp fish/fish.sh ~/.config/fish/config.fish
+	@cp fish/config.fish ~/.config/fish/config.fish
 
 brew_dump:
 	@echo "🌴 ${CYAN}Update brewfile${NO_COLOR}"

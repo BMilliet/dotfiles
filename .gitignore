@@ -1,5 +1,6 @@
 
 .DS_Store
 zsh_custom.sh
+custom.fish
 docs
 bin

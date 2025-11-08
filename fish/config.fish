@@ -25,6 +25,18 @@ set -g __fish_git_prompt_color_branch yellow
 set -g __fish_git_prompt_char_dirtystate '✗'
 set -g __fish_git_prompt_char_cleanstate ''
 
+# Brew
+if test -d /opt/homebrew/bin
+    echo "loaded brew"
+    fish_add_path /opt/homebrew/bin
+end
+
+# Custom config
+if test -f ~/.config/dotfiles/fish/custom.fish
+    echo "custom config loaded"
+    source ~/.config/dotfiles/fish/custom.fish
+end
+
 # Prompt
 function fish_prompt
 
