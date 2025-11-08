@@ -11,17 +11,16 @@ YELLOW=\033[1;33m
 
 # Commands
 
+FISH_PATH := $(shell which fish)
 
 setup_mac:
 	@echo "⛵️ ${GREEN}Setup macOS${NO_COLOR}"
-	@touch zsh_custom.sh
+	@cd setup/macos && brew bundle install
 	@$(MAKE) create_docs
 	@$(MAKE) create_bin
 	@$(MAKE) create_workspace
 	@$(MAKE) setup_nvim
-	@$(MAKE) set_custom_zsh
-	@cd setup/macos && brew bundle install
-	@source ~/.zshrc
+	@$(MAKE) set_fish
 
 setup_nvim:
 	@echo "☕️ ${GREEN}Setup nvim${NO_COLOR}"
@@ -57,6 +56,9 @@ create_bin:
 
 set_custom_zsh:
 	@echo 'source ~/.config/dotfiles/zsh_my_stuff.sh' >> ~/.zshrc
+
+set_fish:
+	@cp fish/fish.sh ~/.config/fish/config.fish
 
 brew_dump:
 	@echo "🌴 ${CYAN}Update brewfile${NO_COLOR}"

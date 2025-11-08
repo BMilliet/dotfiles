@@ -1,6 +1,16 @@
+# Globals
 set -gx LANG en_US.UTF-8
 set -gx EDITOR nvim
 set -gx WORKSPACE ~/workspace
+
+# Alias
+alias cat="bat"
+alias vi="nvim"
+alias vim="nvim"
+alias l="ls -la"
+alias gst="git status"
+alias gco="git checkout"
+alias lz="lazygit"
 
 # Colors
 set -g fish_color_cwd cyan
@@ -17,6 +27,8 @@ set -g __fish_git_prompt_char_cleanstate ''
 
 # Prompt
 function fish_prompt
+
+    set -l last_status $status
     set current_dir (pwd)
 
     if test "$current_dir" = "$HOME"
@@ -25,7 +37,6 @@ function fish_prompt
         set dir (basename $current_dir)
     end
 
-    # Diretório em bold
     set_color --bold $fish_color_cwd
     echo -n " "
     echo -n $dir
@@ -34,16 +45,20 @@ function fish_prompt
     set git_prompt (fish_git_prompt "%s")
 
     if test -n "$git_prompt"
-        set_color --bold magenta
+        set_color --bold blue
         echo -n " git:("
         set_color --bold normal
         echo -n $git_prompt
-        set_color --bold magenta
+        set_color --bold blue
         echo -n ")"
     end
 
-    # Símbolo >
-    set_color --bold green
+    if test $last_status -ne 0
+        set_color --bold red
+    else
+        set_color --bold green
+    end
+
     echo -n " > "
     set_color normal
 end
@@ -76,10 +91,6 @@ function dotconfig
     cd ~/.config/dotfiles
     nvim
 end
-
-alias cat="bat"
-alias vi="nvim"
-alias vim="nvim"
 
 function add_custom
     nvim ~/.config/dotfiles/fish_custom.fish
