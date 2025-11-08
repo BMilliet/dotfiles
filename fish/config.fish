@@ -17,14 +17,6 @@ set -g fish_color_cwd cyan
 set -g fish_color_git_dirty red
 set -g fish_color_git_clean green
 
-# Git configs fish_git_prompt
-set -g __fish_git_prompt_show_informative_status 1
-set -g __fish_git_prompt_showdirtystate 1
-set -g __fish_git_prompt_showuntrackedfiles 1
-set -g __fish_git_prompt_color_branch yellow
-set -g __fish_git_prompt_char_dirtystate '✗'
-set -g __fish_git_prompt_char_cleanstate ''
-
 # Brew
 if test -d /opt/homebrew/bin
     echo "loaded brew"
@@ -36,6 +28,18 @@ if test -f ~/.config/dotfiles/fish/custom.fish
     echo "custom config loaded"
     source ~/.config/dotfiles/fish/custom.fish
 end
+
+# Git configs fish_git_prompt
+set -g __fish_git_prompt_show_informative_status 1
+set -g __fish_git_prompt_showdirtystate 1
+set -g __fish_git_prompt_showuntrackedfiles 1
+set -g __fish_git_prompt_char_dirtystate '✗'
+set -g __fish_git_prompt_char_cleanstate ''
+set -g __fish_git_prompt_showcolorhints 1
+
+# Git colors
+set -g __fish_git_prompt_color_branch red
+set -g __fish_git_prompt_color_dirtystate yellow
 
 # Prompt
 function fish_prompt
@@ -59,7 +63,7 @@ function fish_prompt
     if test -n "$git_prompt"
         set_color --bold blue
         echo -n " git:("
-        set_color --bold normal
+        set_color --bold yellow
         echo -n $git_prompt
         set_color --bold blue
         echo -n ")"
