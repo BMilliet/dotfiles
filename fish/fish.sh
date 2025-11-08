@@ -1,6 +1,6 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
+set -gx LANG en_US.UTF-8
+set -gx EDITOR nvim
+set -gx WORKSPACE ~/workspace
 
 # Colors
 set -g fish_color_cwd cyan
@@ -48,8 +48,125 @@ function fish_prompt
     set_color normal
 end
 
-alias l="la -la"
-alias gst="git status"
-alias gco="git checkout"
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+
+
+#### ALIAS / FUNC
+
+function docs
+    $EDITOR ~/.my_docs
+end
+
+function work
+    cd $WORKSPACE
+end
+
+function zso
+    source ~/.config/fish/config.fish
+end
+
+function nconfig
+    cd ~/.config/nvim
+    nvim
+end
+
+function dotconfig
+    cd ~/.config/dotfiles
+    nvim
+end
+
+alias cat="bat"
 alias vi="nvim"
+alias vim="nvim"
+
+function add_custom
+    nvim ~/.config/dotfiles/fish_custom.fish
+end
+
+function swift_init
+    swift package init --type executable
+end
+
+#### FZF
+
+function handle_search
+    set result $argv[1]
+
+    if test -n "$result"
+        if test -d "$result"
+            cd "$result"
+        else if test -f "$result"
+            $EDITOR "$result"
+        else
+            set_color red
+            echo "Error: Not a directory or file."
+            set_color normal
+        end
+    else
+        set_color red
+        echo "Error: No result provided."
+        set_color normal
+    end
+end
+
+function psf
+    set result (find "$WORKSPACE" \( -name .git -o -name .build \) -prune -o -print | fzf)
+    handle_search $result
+end
+
+function sf
+    set result (find . \( -name .git -o -name .build \) -prune -o -print | fzf)
+    handle_search $result
+end
+
+#### HELP
+
+function zhelp
+    echo ""
+    set_color blue
+    echo "#### Help: Commands and Aliases ####"
+    set_color normal
+    echo ""
+
+    set_color magenta
+    echo " 🚀 Available Aliases:"
+    set_color normal
+    echo "  docs       - Open personal documents with $EDITOR"
+    echo "  work       - Go to the workspace directory ($WORKSPACE)"
+    echo "  zso        - Reload the fish config file"
+    echo "  nconfig    - Open Neovim configuration"
+    echo "  dotconfig  - Open dotfiles configuration"
+    echo "  cat        - Replace 'cat' with 'bat'"
+    echo "  vi         - Replace 'vi' with $EDITOR"
+    echo "  vim        - Replace 'vim' with $EDITOR"
+    echo "  add_custom - Edit Fish customizations file"
+    echo "  swift_init - Init new swift executable package"
+    echo ""
+
+    set_color magenta
+    echo " 🧰 Available Functions:"
+    set_color normal
+    echo "  psf        - Search for files in the workspace using fzf"
+    echo "  sf         - Search for files in the current directory using fzf"
+    echo ""
+    set_color blue
+    echo "#### End of Help ####"
+    set_color normal
+    echo ""
+end
+
+#### CUSTOM (Boas-vindas)
+
+echo '
+ ____
+< Hello! >
+ ----
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+'
 

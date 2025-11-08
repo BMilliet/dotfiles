@@ -1,5 +1,6 @@
 tap "homebrew/bundle"
 brew "bat"
+brew "fish"
 brew "fzf"
 brew "git"
 brew "go"
