@@ -19,14 +19,25 @@ set -g fish_color_git_clean green
 
 # Brew
 if test -d /opt/homebrew/bin
-    echo "loaded brew"
+    set_color green
+    echo "🍺 brew loaded"
+    set_color normal
     fish_add_path /opt/homebrew/bin
 end
 
 # Custom config
 if test -f ~/.config/dotfiles/fish/custom.fish
-    echo "custom config loaded"
+    set_color green
+    echo "⚙️ custom config loaded"
+    set_color normal
     source ~/.config/dotfiles/fish/custom.fish
+end
+
+if test -f ~/.config/dotfiles/fish/color.fish
+    set_color green
+    echo "🎨 color theme loaded"
+    set_color normal
+    source ~/.config/dotfiles/fish/color.fish
 end
 
 # Git configs fish_git_prompt
