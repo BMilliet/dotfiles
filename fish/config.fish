@@ -2,6 +2,7 @@
 set -gx LANG en_US.UTF-8
 set -gx EDITOR nvim
 set -gx WORKSPACE ~/workspace
+set -gx TMUX_DEFAULT_SESSION "⚡️"
 
 # Alias
 alias cat="bat"
@@ -11,6 +12,17 @@ alias l="ls -la"
 alias gst="git status"
 alias gco="git checkout"
 alias lz="lazygit"
+
+alias tdev="tmux new -s $TMUX_DEFAULT_SESSION"
+alias tnew="tmux new-window -t $TMUX_DEFAULT_SESSION"
+alias tnext="tmux next-window"
+alias tprev="tmux previous-window"
+alias tkill="tmux kill-window"
+alias tsplit="tmux split-window -h"
+alias tsw="tmux select-pane -L"
+alias tls="tmux ls"
+
+alias add_custom="nvim ~/.config/dotfiles/zsh_custom.sh"
 
 # Colors
 set -g fish_color_cwd cyan
@@ -164,33 +176,41 @@ end
 function zhelp
     echo ""
     set_color blue
-    echo "#### Help: Commands and Aliases ####"
+    echo "#############################"
     set_color normal
     echo ""
 
     set_color magenta
-    echo " 🚀 Available Aliases:"
+    echo " 🚀 helpers:"
     set_color normal
     echo "  docs       - Open personal documents with $EDITOR"
     echo "  work       - Go to the workspace directory ($WORKSPACE)"
     echo "  zso        - Reload the fish config file"
     echo "  nconfig    - Open Neovim configuration"
     echo "  dotconfig  - Open dotfiles configuration"
-    echo "  cat        - Replace 'cat' with 'bat'"
-    echo "  vi         - Replace 'vi' with $EDITOR"
-    echo "  vim        - Replace 'vim' with $EDITOR"
-    echo "  add_custom - Edit Fish customizations file"
-    echo "  swift_init - Init new swift executable package"
     echo ""
 
     set_color magenta
-    echo " 🧰 Available Functions:"
+    echo " ⚡️ tmux:"
     set_color normal
-    echo "  psf        - Search for files in the workspace using fzf"
-    echo "  sf         - Search for files in the current directory using fzf"
+    echo "  tdev       - New session"
+    echo "  tnew       - New window"
+    echo "  tnext      - Next window"
+    echo "  tprev      - Previous window"
+    echo "  tkill      - Kill current window"
+    echo "  tsplit     - Split current window (vertical)"
+    echo "  tsw        - Switch panel"
+    echo "  tls        - List sessions"
+    echo ""
+
+    set_color magenta
+    echo " 🔎 fzf:"
+    set_color normal
+    echo "  psf        - Search for files in the ($WORKSPACE)"
+    echo "  sf         - Search for files in the current directory"
     echo ""
     set_color blue
-    echo "#### End of Help ####"
+    echo "#############################"
     set_color normal
     echo ""
 end

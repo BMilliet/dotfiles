@@ -54,9 +54,6 @@ create_bin:
 		echo "⚡️ ${YELLOW}custom_bin already exists, skipping${NO_COLOR}"; \
 	fi
 
-set_custom_zsh:
-	@echo 'source ~/.config/dotfiles/zsh_my_stuff.sh' >> ~/.zshrc
-
 set_fish:
 	@cp fish/config.fish ~/.config/fish/config.fish
 
