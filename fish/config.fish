@@ -228,3 +228,7 @@ echo '
                 ||     ||
 '
 
+if type -q tmux
+    tdev
+end
+
