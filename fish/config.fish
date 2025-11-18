@@ -228,7 +228,12 @@ echo '
                 ||     ||
 '
 
+# Auto attach or create
 if type -q tmux
-    tdev
+    if tmux has-session -t $TMUX_DEFAULT_SESSION 2>/dev/null
+        tmux attach-session -t $TMUX_DEFAULT_SESSION
+    else
+        tdev
+    end
 end
 
