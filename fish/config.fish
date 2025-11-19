@@ -217,6 +217,7 @@ end
 
 #### CUSTOM (Boas-vindas)
 
+function fish_greeting
 echo '
  ____
 < Hello! >
@@ -227,9 +228,15 @@ echo '
                 ||----w |
                 ||     ||
 '
+end
 
-# Auto attach or create
+# Auto attach or create tmux session
 if type -q tmux
+    # dont attach if its in session
+    if test -n "$TMUX"
+        return
+    end
+
     if tmux has-session -t $TMUX_DEFAULT_SESSION 2>/dev/null
         tmux attach-session -t $TMUX_DEFAULT_SESSION
     else
