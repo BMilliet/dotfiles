@@ -59,4 +59,4 @@ set_fish:
 
 brew_dump:
 	@echo "🌴 ${CYAN}Update brewfile${NO_COLOR}"
-	@cd setup/macos && rm Brewfile && brew bundle dump
+	@cd setup/macos && rm Brewfile && brew bundle dump --formula --cask
