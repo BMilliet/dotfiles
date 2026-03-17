@@ -5,7 +5,7 @@ set -gx WORKSPACE ~/workspace
 set -gx TMUX_DEFAULT_SESSION "⚡️"
 
 # Alias
-alias cat="bat"
+alias cat="glow"
 alias vi="nvim"
 alias vim="nvim"
 alias l="ls -la"
