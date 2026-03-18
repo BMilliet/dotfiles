@@ -110,7 +110,7 @@ end
 #### ALIAS / FUNC
 
 function docs
-    $EDITOR ~/.my_docs
+    cd ~/Documents/my_notes
 end
 
 function work
