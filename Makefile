@@ -54,6 +54,16 @@ create_bin:
 		echo "⚡️ ${YELLOW}custom_bin already exists, skipping${NO_COLOR}"; \
 	fi
 
+set_ghostty:
+	@if [ ! -d ~/.config/ghostty ]; then \
+		mkdir ~/.config/ghostty && echo "✅ ${GREEN}~/.config/ghostty created${NO_COLOR}"; \
+	fi
+	@if [ ! -d ~/.config/ghostty/themes ]; then \
+		mkdir ~/.config/ghostty/themes && echo "✅ ${GREEN}~/.config/ghostty/themes created${NO_COLOR}"; \
+	fi
+	@cp ghostty/config ~/.config/ghostty/config
+	@cp ghostty/cat ~/.config/ghostty/themes/cat
+
 set_fish:
 	@cp fish/config.fish ~/.config/fish/config.fish
 
