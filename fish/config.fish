@@ -12,6 +12,7 @@ alias l="ls -la"
 alias gst="git status"
 alias gco="git checkout"
 alias lz="lazygit"
+alias brew_upgrade="brew update && brew upgrade"
 
 alias tdev="tmux new -s $TMUX_DEFAULT_SESSION"
 alias tnew="tmux new-window -t $TMUX_DEFAULT_SESSION"

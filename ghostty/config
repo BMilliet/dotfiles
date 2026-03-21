@@ -3,7 +3,7 @@ theme = cat
 font-size = 14
 
 background-blur-radius = 20
-background-opacity = 0.7
+background-opacity = 0.90
 
 window-decoration = true
 command = /opt/homebrew/bin/fish
