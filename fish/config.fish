@@ -2,7 +2,6 @@
 set -gx LANG en_US.UTF-8
 set -gx EDITOR nvim
 set -gx WORKSPACE ~/workspace
-set -gx TMUX_DEFAULT_SESSION "⚡️"
 
 # Alias
 alias cat="bat"
@@ -13,15 +12,6 @@ alias gst="git status"
 alias gco="git checkout"
 alias lz="lazygit"
 alias brew_upgrade="brew update && brew upgrade"
-
-alias tdev="tmux new -s $TMUX_DEFAULT_SESSION"
-alias tnew="tmux new-window -t $TMUX_DEFAULT_SESSION"
-alias tnext="tmux next-window"
-alias tprev="tmux previous-window"
-alias tkill="tmux kill-window"
-alias tsplit="tmux split-window -h"
-alias tsw="tmux select-pane -L"
-alias tls="tmux ls"
 
 alias add_custom="nvim ~/.config/dotfiles/zsh_custom.sh"
 
