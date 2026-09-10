@@ -93,16 +93,8 @@ function fish_prompt
     set_color normal
 end
 
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
-
 
 #### ALIAS / FUNC
-
-function docs
-    cd ~/Documents/my_notes
-end
 
 function work
     cd $WORKSPACE
@@ -124,10 +116,6 @@ end
 
 function add_custom
     nvim ~/.config/dotfiles/fish_custom.fish
-end
-
-function swift_init
-    swift package init --type executable
 end
 
 #### FZF
@@ -179,30 +167,6 @@ function zhelp
     echo "  zso        - Reload the fish config file"
     echo "  nconfig    - Open Neovim configuration"
     echo "  dotconfig  - Open dotfiles configuration"
-    echo ""
-
-    set_color magenta
-    echo " ⚡️ tmux:"
-    set_color normal
-    echo "  tdev       - New session"
-    echo "  tnew       - New window"
-    echo "  tnext      - Next window"
-    echo "  tprev      - Previous window"
-    echo "  tkill      - Kill current window"
-    echo "  tsplit     - Split current window (vertical)"
-    echo "  tsw        - Switch panel"
-    echo "  tls        - List sessions"
-    echo ""
-
-    set_color magenta
-    echo " 🔎 fzf:"
-    set_color normal
-    echo "  psf        - Search for files in the ($WORKSPACE)"
-    echo "  sf         - Search for files in the current directory"
-    echo ""
-    set_color blue
-    echo "#############################"
-    set_color normal
     echo ""
 end
 
