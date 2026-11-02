@@ -150,6 +150,20 @@ function sf
     handle_search $result
 end
 
+### custom pwd
+function pwd
+    set -l path (builtin pwd)
+
+    if test "$path" = "$HOME"
+        set path '~'
+    else if string match -q "$HOME/*" -- "$path"
+        set path (string replace "$HOME/" '~/' -- "$path")
+    end
+
+    echo $path
+    printf '%s' "$path" | pbcopy
+end
+
 #### HELP
 
 function zhelp
