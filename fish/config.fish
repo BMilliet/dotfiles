@@ -150,8 +150,8 @@ function sf
     handle_search $result
 end
 
-### custom pwd
-function pwd
+### custom interactive pwd
+function pwdc --description 'Print the current directory and copy it to the clipboard'
     set -l path (builtin pwd)
 
     if test "$path" = "$HOME"
@@ -163,6 +163,10 @@ function pwd
     echo $path
     printf '%s' "$path" | pbcopy
 end
+
+# Abbreviations are expanded only in the interactive command line. This keeps
+# scripts, tools, command substitutions, and the prompt itself on the builtin pwd.
+abbr --add --position command pwd pwdc
 
 #### HELP
 
